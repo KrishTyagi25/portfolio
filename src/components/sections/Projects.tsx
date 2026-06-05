@@ -1,11 +1,26 @@
 "use client";
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { Github, ExternalLink, X, Star } from "lucide-react";
+import { ExternalLink, X, Star } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 import { projects } from "@/data/config";
 import Image from "next/image";
 
-function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClose: () => void }) {
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  longDescription: string;
+  image: string;
+  techStack: string[];
+  features: string[];
+  github?: string;
+  live?: string;
+  featured: boolean;
+  color: string;
+}
+
+function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
   return (
     <AnimatePresence>
       <motion.div
@@ -72,23 +87,27 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
 
           {/* Links */}
           <div className="flex gap-3">
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noreferrer"
-              className="flex-1 py-3 rounded-xl glass border border-white/10 flex items-center justify-center gap-2 text-text-secondary hover:text-text-primary font-display font-medium text-sm transition-all hover:border-white/20"
-            >
-              <Github size={16} /> GitHub
-            </a>
-            <a
-              href={project.live}
-              target="_blank"
-              rel="noreferrer"
-              className="flex-1 py-3 rounded-xl font-display font-medium text-sm flex items-center justify-center gap-2 text-white transition-all"
-              style={{ background: project.color, boxShadow: `0 0 20px ${project.color}40` }}
-            >
-              <ExternalLink size={16} /> Live Demo
-            </a>
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+                className="flex-1 py-3 rounded-xl glass border border-white/10 flex items-center justify-center gap-2 text-text-secondary hover:text-text-primary font-display font-medium text-sm transition-all hover:border-white/20"
+              >
+                <FaGithub size={16} /> GitHub
+              </a>
+            )}
+            {project.live && (
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noreferrer"
+                className="flex-1 py-3 rounded-xl font-display font-medium text-sm flex items-center justify-center gap-2 text-white transition-all"
+                style={{ background: project.color, boxShadow: `0 0 20px ${project.color}40` }}
+              >
+                <ExternalLink size={16} /> Live Demo
+              </a>
+            )}
           </div>
         </motion.div>
       </motion.div>
@@ -96,7 +115,7 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
   );
 }
 
-function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
@@ -178,23 +197,27 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 
           {/* Links */}
           <div className="flex gap-3" onClick={(e) => e.stopPropagation()}>
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-1.5 text-xs text-text-secondary hover:text-text-primary font-mono transition-all"
-            >
-              <Github size={14} /> Code
-            </a>
-            <a
-              href={project.live}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-1.5 text-xs font-mono transition-all"
-              style={{ color: project.color }}
-            >
-              <ExternalLink size={14} /> Live Demo
-            </a>
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 text-xs text-text-secondary hover:text-text-primary font-mono transition-all"
+              >
+                <FaGithub size={14} /> Code
+              </a>
+            )}
+            {project.live && (
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 text-xs font-mono transition-all"
+                style={{ color: project.color }}
+              >
+                <ExternalLink size={14} /> Live Demo
+              </a>
+            )}
           </div>
         </div>
       </motion.div>
@@ -228,7 +251,7 @@ export default function Projects() {
 
         {/* Project Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, i) => (
+          {(projects as Project[]).map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} />
           ))}
         </div>
@@ -246,7 +269,7 @@ export default function Projects() {
             rel="noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass border border-accent/20 text-text-secondary hover:text-text-primary hover:border-accent/40 font-display font-medium text-sm transition-all"
           >
-            <Github size={16} />
+            <FaGithub size={16} />
             See all projects on GitHub →
           </a>
         </motion.div>

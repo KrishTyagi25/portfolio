@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ArrowDown, Download } from "lucide-react";
+import { Mail, ArrowDown, Download } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import dynamic from "next/dynamic";
 import { personal } from "@/data/config";
 
@@ -142,8 +143,8 @@ export default function Hero() {
           className="flex items-center justify-center gap-4"
         >
           {[
-            { icon: Github, href: personal.socials.github, label: "GitHub" },
-            { icon: Linkedin, href: personal.socials.linkedin, label: "LinkedIn" },
+            { icon: FaGithub, href: personal.socials.github, label: "GitHub" },
+            { icon: FaLinkedin, href: personal.socials.linkedin, label: "LinkedIn" },
             { icon: Mail, href: `mailto:${personal.email}`, label: "Email" },
           ].map(({ icon: Icon, href, label }) => (
             <motion.a

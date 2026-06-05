@@ -1,7 +1,8 @@
 "use client";
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Mail, Github, Linkedin, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { Mail, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { personal } from "@/data/config";
 import emailjs from "emailjs-com";
 
@@ -103,7 +104,7 @@ export default function Contact() {
                   className="flex items-center gap-4 p-4 rounded-xl glass border border-white/10 hover:border-accent/30 transition-all group"
                 >
                   <div className="w-10 h-10 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center">
-                    <Github size={18} className="text-accent" />
+                    <FaGithub size={18} className="text-accent" />
                   </div>
                   <div>
                     <p className="text-xs text-text-muted font-mono uppercase">GitHub</p>
@@ -118,7 +119,7 @@ export default function Contact() {
                   className="flex items-center gap-4 p-4 rounded-xl glass border border-white/10 hover:border-accent/30 transition-all group"
                 >
                   <div className="w-10 h-10 rounded-lg bg-[#3b82f6]/10 border border-[#3b82f6]/20 flex items-center justify-center">
-                    <Linkedin size={18} className="text-[#3b82f6]" />
+                    <FaLinkedin size={18} className="text-[#3b82f6]" />
                   </div>
                   <div>
                     <p className="text-xs text-text-muted font-mono uppercase">LinkedIn</p>
