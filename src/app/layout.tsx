@@ -24,20 +24,20 @@ const monoFont = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Krish Sharma | Full-Stack Developer",
+  title: "Krish Tyagi | Full-Stack Developer",
   description:
     "B.Tech CSE student and full-stack developer crafting high-performance web experiences. Passionate about React, Node.js, DSA, and interactive UIs.",
   keywords: [
-    "Krish Sharma",
+    "Krish Tyagi",
     "Full Stack Developer",
     "React Developer",
     "Next.js",
     "Portfolio",
     "B.Tech CSE",
   ],
-  authors: [{ name: "Krish Sharma" }],
+  authors: [{ name: "Krish Tyagi" }],
   openGraph: {
-    title: "Krish Sharma | Full-Stack Developer",
+    title: "Krish Tyagi | Full-Stack Developer",
     description: "Building digital experiences that live at the intersection of performance and design.",
     type: "website",
   },
