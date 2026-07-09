@@ -1,100 +1,93 @@
 "use client";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { Calendar, MapPin } from "lucide-react";
-
-const experiences = [
-  {
-    role: "Open Source Contributor",
-    company: "GitHub / Community",
-    duration: "2025 - Present",
-    location: "Remote",
-    description: "Contributing to various open-source projects, improving code quality, fixing bugs, and collaborating with developers globally.",
-    color: "#6366f1",
-  },
-  {
-    role: "Full-Stack Developer",
-    company: "Freelance / Personal Projects",
-    duration: "2024 - Present",
-    location: "Self-Employed",
-    description: "Designing and developing responsive full-stack web applications using Next.js, React, Node.js, and MongoDB.",
-    color: "#06b6d4",
-  },
-  {
-    role: "B.Tech CSE Student",
-    company: "Ajay Kumar Garg Engineering College",
-    duration: "2024 - 2028",
-    location: "Ghaziabad, UP",
-    description: "Studying core computer science concepts, algorithms, data structures, and software engineering principles.",
-    color: "#8b5cf6",
-  },
-];
+import { Calendar, MapPin, Award } from "lucide-react";
+import { education, achievements } from "@/data/config";
+import SectionTransition from "@/components/ui/SectionTransition";
+import TiltCard from "@/components/ui/TiltCard";
 
 export default function Experience() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
+
+  const pathLength = useSpring(scrollYProgress, { stiffness: 400, damping: 90 });
 
   return (
-    <section id="experience" className="relative py-24 px-4 md:px-8 bg-surface/10">
-      <div className="max-w-6xl mx-auto" ref={ref}>
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
-        >
-          <p className="text-accent font-mono text-sm tracking-widest uppercase mb-3">04 / Experience</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-text-primary mb-4">
-            My Journey
-          </h2>
-          <p className="text-text-secondary font-body text-lg max-w-xl">
-            A timeline of my education, projects, and professional growth as a developer.
-          </p>
-        </motion.div>
+    <section id="experience" className="relative py-24 px-4 md:px-8 bg-surface/10 overflow-hidden" ref={containerRef}>
+      <div className="max-w-6xl mx-auto relative z-10">
+        <SectionTransition variant="fadeUp">
+          <div className="mb-20 text-center md:text-left">
+            <p className="text-accent font-mono text-sm tracking-widest uppercase mb-3">04 / Background</p>
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-text-primary mb-4">Education & Achievements</h2>
+          </div>
+        </SectionTransition>
 
-        {/* Timeline */}
-        <div className="relative border-l border-white/10 ml-4 md:ml-8 space-y-12">
-          {experiences.map((exp, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -30 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="relative pl-8 md:pl-12 group"
-            >
-              {/* Dot */}
-              <div
-                className="absolute left-0 top-1.5 -translate-x-1/2 w-4 h-4 rounded-full border-2 bg-background transition-all duration-300 group-hover:scale-125"
-                style={{ borderColor: exp.color, boxShadow: `0 0 10px ${exp.color}60` }}
-              />
+        <div className="grid lg:grid-cols-2 gap-16">
+          {/* Timeline side */}
+          <div className="relative">
+            {/* SVG Line for scroll animation */}
+            <div className="absolute left-[15px] top-4 bottom-0 w-1 bg-white/5 rounded-full" />
+            <motion.div 
+              className="absolute left-[15px] top-4 bottom-0 w-1 rounded-full origin-top"
+              style={{ background: "linear-gradient(180deg, #6366f1, #06b6d4)", scaleY: pathLength }}
+            />
 
-              {/* Card */}
-              <div className="glass rounded-2xl border border-[rgba(99,102,241,0.12)] p-6 transition-all duration-300 hover:border-accent/30 hover:shadow-card-hover">
-                <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
-                  <div>
-                    <h3 className="font-display text-xl font-bold text-text-primary group-hover:gradient-text transition-all">
-                      {exp.role}
-                    </h3>
-                    <p className="text-text-secondary font-body font-medium text-sm mt-0.5">
-                      {exp.company}
-                    </p>
+            <div className="space-y-12">
+              {education.map((edu, i) => (
+                <SectionTransition key={i} variant="slideRight" delay={i * 0.2}>
+                  <div className="relative pl-12 group">
+                    <div className="absolute left-[-2px] top-2 w-8 h-8 rounded-full border-4 border-[#0a0a1a] flex items-center justify-center z-10 transition-transform group-hover:scale-125" style={{ background: edu.color }}>
+                      <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                    </div>
+                    
+                    <TiltCard maxTilt={5}>
+                      <div className="glass-card rounded-2xl p-6 border-gradient relative overflow-hidden">
+                        <div className="absolute top-0 right-0 p-8 opacity-5">
+                          <Award size={100} style={{ color: edu.color }} />
+                        </div>
+                        <h3 className="font-display text-xl font-bold text-text-primary mb-1">{edu.degree}</h3>
+                        <p className="text-text-secondary font-body font-medium text-sm mb-4">{edu.institution}</p>
+                        
+                        <div className="flex flex-col gap-2 font-mono text-xs text-text-muted">
+                          <span className="flex items-center gap-2"><Calendar size={14} style={{ color: edu.color }}/> {edu.duration}</span>
+                          <span className="flex items-center gap-2"><MapPin size={14} style={{ color: edu.color }}/> {edu.location}</span>
+                        </div>
+                      </div>
+                    </TiltCard>
                   </div>
-                  <div className="flex flex-col items-end text-xs font-mono text-text-muted gap-1">
-                    <span className="flex items-center gap-1">
-                      <Calendar size={12} /> {exp.duration}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <MapPin size={12} /> {exp.location}
-                    </span>
+                </SectionTransition>
+              ))}
+            </div>
+          </div>
+
+          {/* Achievements side */}
+          <div>
+            <SectionTransition variant="fadeUp" delay={0.2}>
+              <h3 className="font-display text-2xl font-bold text-text-primary mb-8 flex items-center gap-3">
+                <Award className="text-accent" /> Key Achievements
+              </h3>
+            </SectionTransition>
+            
+            <div className="space-y-4">
+              {achievements.map((ach, i) => (
+                <SectionTransition key={i} variant="slideLeft" delay={0.3 + i * 0.1}>
+                  <div className="glass rounded-xl p-5 border border-white/10 hover:border-white/20 transition-all flex items-start gap-4 group">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0 transition-transform group-hover:scale-110 group-hover:rotate-6" style={{ background: `${ach.color}15` }}>
+                      {ach.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-display font-semibold text-text-primary mb-1 group-hover:text-white transition-colors">{ach.title}</h4>
+                      <p className="text-text-secondary font-body text-sm leading-relaxed">{ach.description}</p>
+                    </div>
                   </div>
-                </div>
-                <p className="text-text-secondary font-body text-sm leading-relaxed">
-                  {exp.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+                </SectionTransition>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
