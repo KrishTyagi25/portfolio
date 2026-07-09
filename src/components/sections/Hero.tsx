@@ -125,7 +125,7 @@ export default function Hero() {
           <MagneticButton>
             <motion.a
               href={personal.resumeUrl}
-              download
+              download="Krish_Tyagi_Resume.pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
               className="px-8 py-3.5 rounded-xl glass border border-accent/30 text-text-primary font-display font-semibold text-base hover:border-accent/60 transition-all flex items-center gap-2 block"

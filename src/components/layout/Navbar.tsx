@@ -94,7 +94,7 @@ export default function Navbar() {
             <MagneticButton>
               <motion.a
                 href={personal.resumeUrl}
-                download
+                download="Krish_Tyagi_Resume.pdf"
                 className="ml-3 px-5 py-2 rounded-lg bg-accent border border-accent/50 text-white text-sm font-medium hover:bg-accent/90 transition-all shadow-glow-sm block"
               >
                 Resume ↓
@@ -137,7 +137,7 @@ export default function Navbar() {
             ))}
             <a
               href={personal.resumeUrl}
-              download
+              download="Krish_Tyagi_Resume.pdf"
               className="block mt-4 px-4 py-3 rounded-lg bg-accent border border-accent/50 text-white text-center font-medium shadow-glow-sm"
             >
               Download Resume

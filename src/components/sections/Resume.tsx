@@ -49,7 +49,7 @@ export function Resume() {
               <MagneticButton>
                 <a
                   href={personal.resumeUrl}
-                  download
+                  download="Krish_Tyagi_Resume.pdf"
                   className="inline-flex items-center gap-3 px-10 py-4 rounded-xl bg-accent text-white font-display font-bold text-lg shadow-glow-md transition-all hover:bg-accent/90 border border-transparent hover:border-white/20 block"
                 >
                   <Download size={20} /> Download Resume
