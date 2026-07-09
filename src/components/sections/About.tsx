@@ -21,7 +21,7 @@ export default function About() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="relative py-24 px-4 md:px-8 overflow-hidden">
+    <section className="relative py-24 px-4 md:px-8 overflow-hidden">
       <FloatingGeometry type="icosahedron" color="#06b6d4" className="-right-1/4 -top-1/4" scale={1.5} />
       
       <div className="max-w-6xl mx-auto relative z-10" ref={ref}>

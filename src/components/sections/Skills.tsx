@@ -57,7 +57,7 @@ export default function Skills() {
   const activeColor = categories.find(c => c.key === active)?.color || "#6366f1";
 
   return (
-    <section id="skills" className="relative py-24 px-4 md:px-8 bg-surface/40 overflow-hidden">
+    <section className="relative py-24 px-4 md:px-8 bg-surface/40 overflow-hidden">
       <FloatingGeometry type="octahedron" color={activeColor} className="-left-1/4 top-1/4" scale={2} />
 
       <div className="max-w-6xl mx-auto relative z-10">

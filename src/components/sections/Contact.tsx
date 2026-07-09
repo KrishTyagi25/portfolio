@@ -38,7 +38,7 @@ export default function Contact() {
   const inputClass = "w-full px-4 py-3.5 rounded-xl glass border border-[rgba(99,102,241,0.15)] text-text-primary font-body text-sm placeholder:text-text-muted focus:outline-none focus:border-accent/50 focus:shadow-glow-sm transition-all duration-300 bg-transparent";
 
   return (
-    <section id="contact" className="relative py-24 px-4 md:px-8 bg-surface/30">
+    <section className="relative py-24 px-4 md:px-8 bg-surface/30">
       <div className="max-w-6xl mx-auto">
         <SectionTransition variant="fadeUp">
           <div className="mb-16">

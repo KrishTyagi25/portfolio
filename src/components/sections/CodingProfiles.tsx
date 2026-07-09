@@ -50,7 +50,7 @@ const platforms = [
 
 export default function CodingProfiles() {
   return (
-    <section id="coding" className="relative py-24 px-4 md:px-8 overflow-hidden">
+    <section className="relative py-24 px-4 md:px-8 overflow-hidden">
       <FloatingGeometry type="torusKnot" color="#6366f1" className="-right-1/3 top-0 opacity-40" scale={1.2} />
       
       <div className="max-w-6xl mx-auto relative z-10">

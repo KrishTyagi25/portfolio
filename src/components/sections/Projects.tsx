@@ -127,7 +127,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative py-24 px-4 md:px-8 bg-surface/20">
+    <section className="relative py-24 px-4 md:px-8 bg-surface/20">
       <div className="max-w-6xl mx-auto">
         <SectionTransition variant="fadeUp">
           <div className="mb-16">

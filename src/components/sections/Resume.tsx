@@ -15,7 +15,7 @@ const highlights = [
 
 export function Resume() {
   return (
-    <section id="resume" className="relative py-24 px-4 md:px-8 overflow-hidden">
+    <section className="relative py-24 px-4 md:px-8 overflow-hidden">
       <div className="absolute inset-0 bg-hero-gradient z-0 opacity-30 pointer-events-none" />
       
       <div className="max-w-3xl mx-auto text-center relative z-10">

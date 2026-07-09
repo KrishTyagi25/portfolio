@@ -17,7 +17,7 @@ export default function Experience() {
   const pathLength = useSpring(scrollYProgress, { stiffness: 400, damping: 90 });
 
   return (
-    <section id="experience" className="relative py-24 px-4 md:px-8 bg-surface/10 overflow-hidden" ref={containerRef}>
+    <section className="relative py-24 px-4 md:px-8 bg-surface/10 overflow-hidden" ref={containerRef}>
       <div className="max-w-6xl mx-auto relative z-10">
         <SectionTransition variant="fadeUp">
           <div className="mb-20 text-center md:text-left">

@@ -31,7 +31,7 @@ function AnimatedRoles() {
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-20">
       <ParticleBackground />
 
       <div className="absolute inset-0 bg-hero-gradient z-1 pointer-events-none" />
