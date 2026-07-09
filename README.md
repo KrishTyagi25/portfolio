@@ -1,36 +1,188 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Personal Portfolio — Krish Tyagi
 
-## Getting Started
+A modern, premium developer portfolio built with cutting-edge web technologies. Designed to be fast, interactive, and visually impressive while remaining clean and recruiter-friendly.
 
-First, run the development server:
+🌐 **Live:** [your-portfolio.vercel.app](https://your-portfolio.vercel.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ✨ Features
+
+- **Dark glassmorphism UI** with smooth gradients and premium lighting effects
+- **Three.js particle background** with interactive 3D animations in the hero
+- **Framer Motion** scroll-triggered animations and page transitions
+- **Custom glow cursor** with magnetic hover effects
+- **Bento grid layouts** for About and Skills sections
+- **Project showcase** with modal popups and detailed previews
+- **Coding profiles** — LeetCode, Codeforces, and GitHub stats
+- **Contact form** powered by EmailJS (no backend needed)
+- **Resume download** button with ATS-friendly PDF
+- **Fully responsive** — mobile, tablet, and desktop
+- **SEO optimized** with Open Graph metadata
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS v4 |
+| Animations | Framer Motion + GSAP |
+| 3D Graphics | Three.js + React Three Fiber |
+| Icons | Lucide React + React Icons |
+| Email | EmailJS |
+| Deployment | Vercel |
+| Fonts | Syne + Space Grotesk + JetBrains Mono |
+
+---
+
+## 📁 Project Structure
+
+```
+portfolio/
+├── public/
+│   ├── resume.pdf
+│   └── projects/
+├── src/
+│   ├── app/
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── Navbar.tsx
+│   │   │   └── Footer.tsx
+│   │   ├── ui/
+│   │   │   └── CustomCursor.tsx
+│   │   ├── three/
+│   │   │   └── ParticleBackground.tsx
+│   │   └── sections/
+│   │       ├── Hero.tsx
+│   │       ├── About.tsx
+│   │       ├── Skills.tsx
+│   │       ├── Projects.tsx
+│   │       ├── Experience.tsx
+│   │       ├── CodingProfiles.tsx
+│   │       ├── Resume.tsx
+│   │       └── Contact.tsx
+│   └── data/
+│       └── config.ts
+├── .env.local
+└── package.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Prerequisites
+- Node.js 18+
+- npm or yarn
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Clone the repository
+git clone https://github.com/KrishTyagi25/portfolio.git
+cd portfolio
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Install dependencies
+npm install
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Set up environment variables
+cp .env.example .env.local
+# Fill in your EmailJS credentials in .env.local
 
-## Deploy on Vercel
+# Run development server
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Environment Variables
+
+Create a `.env.local` file in the root:
+
+```env
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+Get your keys from [emailjs.com](https://emailjs.com)
+
+---
+
+## 🎨 Customization
+
+All personal data is centralized in one file:
+
+```
+src/data/config.ts
+```
+
+Edit this file to update:
+- Your name, bio, email, location
+- Social links (GitHub, LinkedIn, LeetCode, Codeforces)
+- Projects with descriptions, tech stack, and links
+- Skills with proficiency levels
+- Coding stats (LeetCode solved, CF rating, GitHub stats)
+
+---
+
+## 📦 Deployment
+
+### Deploy to Vercel (Recommended)
+
+```bash
+# Install Vercel CLI
+npm install -g vercel
+
+# Deploy
+vercel --prod
+```
+
+Or connect your GitHub repo on [vercel.com](https://vercel.com) for automatic deployments on every push.
+
+### Add Environment Variables on Vercel
+
+Vercel Dashboard → Your Project → Settings → Environment Variables → Add your EmailJS keys
+
+---
+
+## 📄 Sections
+
+| # | Section | Description |
+|---|---|---|
+| 1 | Hero | Full-screen landing with 3D particle background |
+| 2 | About | Bio, education, and goals in bento grid layout |
+| 3 | Skills | Categorized tech stack with animated progress bars |
+| 4 | Projects | Showcase with modal popups and live demo links |
+| 5 | Experience | Timeline with open-to-work status |
+| 6 | Coding | LeetCode, Codeforces, and GitHub stats |
+| 7 | Resume | One-click ATS-friendly resume download |
+| 8 | Contact | EmailJS-powered contact form |
+
+---
+
+## 🧑‍💻 Author
+
+**Krish Tyagi**
+- 📧 [krishtyagi0125@gmail.com](mailto:krishtyagi0125@gmail.com)
+- 💼 [linkedin.com/in/KrishTyagi25](https://linkedin.com/in/KrishTyagi25)
+- 🐙 [github.com/KrishTyagi25](https://github.com/KrishTyagi25)
+
+---
+
+## 📜 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+<div align="center">
+  <p>Built with ❤️ by Krish Tyagi</p>
+  <p>⭐ Star this repo if you found it helpful!</p>
+</div>
