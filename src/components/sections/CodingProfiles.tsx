@@ -91,8 +91,7 @@ export default function CodingProfiles() {
                     {platform.stats.map((stat) => (
                       <div key={stat.label} className="text-center bg-surface-2/50 rounded-xl p-3 border border-white/5">
                         <p className="font-display text-xl font-bold" style={{ color: platform.color }}>
-                          {stat.isString ? stat.value : <><AnimatedCounter end={stat.value as number} />{stat.prefix}</>}
-                        </p>
+{stat.isString ? stat.value : <><AnimatedCounter end={stat.value as number} />{"prefix" in stat ? stat.prefix : ""}</>}                        </p>
                         <p className="text-text-muted font-mono text-[10px] uppercase mt-1 tracking-wider">{stat.label}</p>
                       </div>
                     ))}
