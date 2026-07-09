@@ -64,7 +64,7 @@ export default function CodingProfiles() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {platforms.map((platform, i) => (
-            <SectionTransition key={platform.name} variant="slideUp" delay={i * 0.15}>
+            <SectionTransition key={platform.name} variant="fadeUp" delay={i * 0.15}>
               <TiltCard className="h-full" glare={true} maxTilt={8}>
                 <div className="glass-card rounded-3xl p-6 h-full flex flex-col border-gradient">
                   <div className="flex items-center justify-between mb-8">
