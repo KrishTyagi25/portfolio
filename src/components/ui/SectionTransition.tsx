@@ -1,6 +1,6 @@
 "use client";
 import { useRef, ReactNode } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, TargetAndTransition } from "framer-motion";
 
 type Variant =
   | "fadeUp"
@@ -10,7 +10,7 @@ type Variant =
   | "scale"
   | "rotateIn";
 
-const variants: Record<Variant, { initial: object; animate: object }> = {
+const variants: Record<Variant, { initial: TargetAndTransition; animate: TargetAndTransition }> = {
   fadeUp: { initial: { opacity: 0, y: 60 }, animate: { opacity: 1, y: 0 } },
   fadeDown: { initial: { opacity: 0, y: -60 }, animate: { opacity: 1, y: 0 } },
   slideLeft: { initial: { opacity: 0, x: -80 }, animate: { opacity: 1, x: 0 } },
